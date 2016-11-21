@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>180</y>
+      <w>220</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>By
+--
+-String navn
+-int innbyggere
+-int maxInnbyggere
+-String ordfører
+--
++By()
++By(String navn, int inb,
+       int maxInb, String ordfører)
++String getNavn()
++void setNavn(String navn) 
++int getInnbyggere()
++void setInnbyggere(int inb) 
++int getMaxInb()
++void setMaxInb(int maxInb) 
++String getOrdfører()
++void setOrfører(String navn) 
++String toString()
++boolean equals(Object obj)
++boolean harPlassTil(int antall)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>180</y>
+      <w>240</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>Land
+--
+-String navn
+-String statsoverhodet
+-By[] byer
+-int antallByer
+--
++Land(String navn, String overhodet, 
+           int maxByer)
++String toString()
++boolean regBy(By by)
++int totInbyggere()
++By[] ledigPlass(int ledig)
++String[] ordførere()
+-boolean finnes(By by)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>420</y>
+      <w>280</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Klient
+--
+
+--
+_+void skrivTilFil (Land land, String filnavn)_
+_+Land lesFraFil (String filnavn)_
+_+void main(String[] args)_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>230</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=0..*</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
