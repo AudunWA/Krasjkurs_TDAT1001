@@ -8,6 +8,8 @@
 * Sett av god plass til oppgavene
 * Skriv kommentarer
 * Hvis dere ikke rekker/greier noe, prøv å forklar hva dere ville gjort
+
+
 # Java
 * Husk at man kan ha alle trykte hjelpemidler. Nyttige:
   * Javabok
@@ -19,6 +21,8 @@
 * bruk løkker hvis noe skal skje flere ganger, for løkke hvis dere vet hvor mange, eller while løkke
 * Aktivitetsdiagram og klassediagram
 * Komposisjon og aggregering
+
+
 # OpenGL
 * Skissér
 * Tenk over rekkefølge på transformasjoner
