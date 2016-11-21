@@ -10,27 +10,20 @@ package opengl;
  *
 */
 
-// Java  classes
-
-// import java.awt.event.*;
-import javax.swing.*; // klassene JFrame og JPanel
-
 //JOGL classes:
 import static com.jogamp.opengl.GL2.*;//slipper å bruke GL2.konstant
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.GLAutoDrawable;
-import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.awt.GLCanvas;
 import static com.jogamp.opengl.fixedfunc.GLMatrixFunc.GL_MODELVIEW;
 import static com.jogamp.opengl.fixedfunc.GLMatrixFunc.GL_PROJECTION;
-import com.jogamp.opengl.util.FPSAnimator;
 
 import com.jogamp.opengl.util.gl2.GLUT;
 
 
-public class Test extends GLCanvas implements GLEventListener{
+public class Oppgave extends GLCanvas implements GLEventListener{
 
 	/* interfacet GLEventListener innholder de 5 metodene som må implemeenteres:
 		- display(GLDrawable drawable)
@@ -48,37 +41,43 @@ public class Test extends GLCanvas implements GLEventListener{
     private GLCanvas canvas;
     private float angle;
 
-    public Test(){
+    public Oppgave(){
         this.addGLEventListener(this);//et objekt av klassen TegningOv1 fungerer som lytter. Det lytter på objektet selv
     }
 
     public void init(GLAutoDrawable glDrawable) {
+        /*
+        * h)
+        * Forklar kort hvordan OpenGL-metoder kan fjerne skjulte flater.
+        * Angi gjerne de OpenGL-metodene som kan kalles i init()-metoden for å
+        * kunne utføre disse beregningene. For at OpenGL-metoder skal kunne
+        * benytte vektorer/tabeller (arrays) som parametere, må denne
+        * egenskapen slåes på. Angi de OpenGL-metodene som du kan benytte
+        * deg av i 2 g) for å kunne bruke både fargetabeller, hjørnepunkttabeller
+        * og normaliserte vektorer.
+        */
+
         // Has to implementet due to the GLEventListener interface
         GL2 gl = glDrawable.getGL().getGL2();	//Get the GL2 object from glDrawable
 
         float width = (float)getSize().width;
         float hight = (float)getSize().height;
 
-        gl.glShadeModel(GL_SMOOTH);           		//Enables Smooth Color Shading
-        gl.glClearColor(1.0f, 1.0f, 1.0f, 1.0f); 		// Sets the background color to white
+        gl.glShadeModel(GL_SMOOTH);           		// Enables Smooth Color Shading
+        gl.glClearColor(1.0f, 1.0f, 1.0f, 1.0f); 	// Sets the background color to white
 
-        gl.glClearDepth(1.0);                         	//Enables Clearing Of The Depth Buffer
-        gl.glEnable(GL_DEPTH_TEST);                	//Enables Depth Testing
+        gl.glClearDepth(1.0);                       // Enables Clearing Of The Depth Buffer
+        gl.glEnable(GL_DEPTH_TEST);                	// Enables Depth Testing
         gl.glEnableClientState(GL_COLOR_ARRAY);   	// Enables color arrays
         gl.glEnableClientState(GL_VERTEX_ARRAY);  	// Enables vertex arrays
-        gl.glDepthFunc(GL_LEQUAL);                  //The Type Of Depth opengl.Test To Do
+        gl.glDepthFunc(GL_LEQUAL);                  // The Type Of Depth opengl.Test To Do
         gl.glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);  // Really Nice Perspective Calculations
 
-        gl.glMatrixMode(GL_PROJECTION);                       // Select The Projection Matrix
-        gl.glLoadIdentity();                                     // Reset The Projection Matrix
-        //	glu.gluLookAt(0.5,0.5,0.3,0.0,0.0,-3.2,0.0,1.0,0.0);    // default verdier: (0.0,0.0,0.0,0.0,0.0,-1.0, 0.0,1.0,0.0)
-//		glu.gluLookAt(-0.1,-0.1,-20.3,0.0,0.0,0.,0.0,1.0,0.0);    // default verdier: (0.0,0.0,0.0,0.0,0.0,-1.0, 0.0,1.0,0.0)
-        glu.gluLookAt(0.0,0.1,0.3,0.0,-2.0,-3.2,0.0,1.0,0.0);    // default verdier: (0.0,0.0,0.0,0.0,0.0,-1.0, 0.0,1.0,0.0)
-// *	glu.gluLookAt(0.5,0.5,0.3,0.0,0.0,3.2,0.0,1.0,0.0);    // default verdier: (0.0,0.0,0.0,0.0,0.0,-1.0, 0.0,1.0,0.0)
-        glu.gluPerspective(90.0f, width / hight,0.1f, 100.0f);  // Defines the Aspect Ratio Of the viewing pyramide
-        gl.glMatrixMode(GL_MODELVIEW);                        // Select The Modelview Matrix
-        gl.glLoadIdentity();                                     // Reset The ModelView Matrix
-
+        gl.glMatrixMode(GL_PROJECTION);                        // Select The Projection Matrix
+        gl.glLoadIdentity();                                   // Reset The Projection Matrix
+        glu.gluPerspective(90.0f, width / hight,0.1f, 100.0f); // Defines the Aspect Ratio Of the viewing pyramide
+        gl.glMatrixMode(GL_MODELVIEW);                         // Select The Modelview Matrix
+        gl.glLoadIdentity();                                   // Reset The ModelView Matrix
     }
 
 
@@ -110,8 +109,8 @@ public class Test extends GLCanvas implements GLEventListener{
 
         gl.glBegin(GL_TRIANGLES);
         gl.glVertex2f(-1, -1); // A
-        gl.glVertex2f(1, 0); // B
-        gl.glVertex2f(-1, 1); // C
+        gl.glVertex2f(1, 0);   // B
+        gl.glVertex2f(-1, 1);  // C
         gl.glEnd();
     }
 
@@ -144,8 +143,8 @@ public class Test extends GLCanvas implements GLEventListener{
 
         gl.glBegin(GL_TRIANGLES);
         gl.glVertex2f(-1, -1); // A
-        gl.glVertex2f(1, 0); // B
-        gl.glVertex2f(-1, 1); // C
+        gl.glVertex2f(1, 0);   // B
+        gl.glVertex2f(-1, 1);  // C
         gl.glEnd();
     }
 
@@ -155,9 +154,9 @@ public class Test extends GLCanvas implements GLEventListener{
         gl.glColor3f(0, 0, 1);
         gl.glBegin(GL_POLYGON);
         gl.glVertex2f(-2, -2); // D
-        gl.glVertex2f(2, -2); // E
-        gl.glVertex2f(2, 2); // F
-        gl.glVertex2f(-2, 2); // G
+        gl.glVertex2f(2, -2);  // E
+        gl.glVertex2f(2, 2);   // F
+        gl.glVertex2f(-2, 2);  // G
         gl.glEnd();
     }
 
@@ -226,8 +225,8 @@ public class Test extends GLCanvas implements GLEventListener{
         gl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // Clear the Color buffer and the Depth Buffer
         gl.glLoadIdentity();
 
+        tegnKoordinatsystem2(glDrawable);
         tegnPyramide(glDrawable);
-        //tegnKoordinatsystem2(glDrawable);
     }
 
     public void dispose(GLAutoDrawable d){};

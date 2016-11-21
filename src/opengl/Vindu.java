@@ -18,7 +18,7 @@ class Vindu extends JFrame{
     public Vindu(){
         setTitle("Pyramide_Eksamen H2015");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Test sirkel = new Test();
+        Oppgave sirkel = new Oppgave();
 //			Sirkel_OPenGL2 sirkel = new Sirkel_OPenGL2();
         sirkel.setSize(1200, 1000);
         add(sirkel);
