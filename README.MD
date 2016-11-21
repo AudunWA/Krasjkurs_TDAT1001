@@ -28,3 +28,6 @@
 # OpenGL
 * Skissér
 * Tenk over rekkefølge på transformasjoner
+
+# Klassediagram
+![alt tag](https://raw.githubusercontent.com/AudunWA/Krasjkurs_TDAT1001/master/src/krasjkurs/diagram.png)
