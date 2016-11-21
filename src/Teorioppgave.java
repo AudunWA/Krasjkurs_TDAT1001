@@ -1,7 +1,7 @@
 /**
  * Created by Audun on 21.11.2016.
  */
-public class Asd {
+public class Teorioppgave {
     public static void main(String[] args) {
         int[] tabell = {1,3,5,7,4,2,6,9};
         for(int i=0; i < tabell.length; i++){
